@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AutoUGC — Turn Buyers Into Video Testimonials, Automatically</title>
+  <title>AutoUGC — Real Customer Videos. Without Fiverr.</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -23,21 +23,6 @@
       line-height: 1.6;
     }
 
-    /* NAV */
-    nav {
-      padding: 1.25rem 2rem;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-    }
-    .logo {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: var(--dark);
-      text-decoration: none;
-    }
-    .logo span { color: var(--green); }
-
     /* HERO */
     .hero {
       max-width: 760px;
@@ -45,18 +30,44 @@
       padding: 5rem 2rem 3rem;
       text-align: center;
     }
-    .badge {
-      display: inline-block;
+
+    /* WAITLIST COUNTER */
+    .waitlist-counter {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
       background: #dcfce7;
       color: var(--green-dark);
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 600;
-      padding: 0.3rem 0.85rem;
+      padding: 0.4rem 1rem;
       border-radius: 999px;
-      margin-bottom: 1.5rem;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
+      margin-bottom: 1.75rem;
     }
+    .waitlist-counter .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* MARKET STAT */
+    .market-stat {
+      display: inline-block;
+      background: #fef9c3;
+      color: #854d0e;
+      font-size: 0.82rem;
+      font-weight: 500;
+      padding: 0.35rem 0.9rem;
+      border-radius: 0.4rem;
+      margin-bottom: 2rem;
+    }
+
     h1 {
       font-size: clamp(2rem, 5vw, 3.2rem);
       font-weight: 800;
@@ -88,6 +99,12 @@
       font-weight: 600;
       margin-bottom: 0.4rem;
       color: var(--dark);
+    }
+    .field-hint {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: var(--gray);
+      margin-left: 0.3rem;
     }
     .form-card input {
       width: 100%;
@@ -131,15 +148,8 @@
       text-align: center;
       padding: 2rem;
     }
-    .success .check {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-    .success h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+    .success .check { font-size: 3rem; margin-bottom: 1rem; }
+    .success h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.5rem; }
     .success p { color: var(--gray); }
 
     /* HOW IT WORKS */
@@ -167,11 +177,7 @@
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 2rem;
     }
-    .step {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .step { display: flex; flex-direction: column; gap: 0.5rem; }
     .step-num {
       width: 2rem;
       height: 2rem;
@@ -184,14 +190,8 @@
       align-items: center;
       justify-content: center;
     }
-    .step h3 {
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .step p {
-      font-size: 0.9rem;
-      color: var(--gray);
-    }
+    .step h3 { font-size: 1rem; font-weight: 700; }
+    .step p { font-size: 0.9rem; color: var(--gray); }
 
     /* BENEFITS */
     .benefits {
@@ -200,10 +200,7 @@
       border-bottom: 1px solid var(--border);
       padding: 5rem 2rem;
     }
-    .benefits-inner {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+    .benefits-inner { max-width: 800px; margin: 0 auto; }
     .benefit-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -240,25 +237,38 @@
 </head>
 <body>
 
-  <nav>
-    <a class="logo" href="#">Auto<span>UGC</span></a>
-  </nav>
-
   <!-- HERO -->
   <section class="hero">
-    <div class="badge">Early Access — Limited Spots</div>
-    <h1>Turn every buyer into a<br/><span>video testimonial.</span><br/>Automatically.</h1>
+
+    <!-- CAMBIO 1A: Contador en tiempo real -->
+    <div class="waitlist-counter">
+      <span class="dot"></span>
+      <span id="counter-text">Join Shopify merchants on the waitlist</span>
+    </div>
+
+    <!-- CAMBIO 3: Headline pain-based "X Without Y" -->
+    <h1>Real customer videos.<br/><span>Without Fiverr,</span><br/>without begging.</h1>
+
     <p class="subtitle">
-      After delivery, AutoUGC emails your customer a one-tap link to record a 15-second video from their phone — and rewards them instantly with a discount code.
+      AutoUGC emails your buyers after delivery. One tap — they record a 15-second video, get an instant discount code. You get authentic UGC. Zero PageSpeed damage.
     </p>
+
+    <!-- CAMBIO 1B: Stat del mercado -->
+    <div class="market-stat">
+      The average Fiverr UGC video costs $150 — and looks like it.
+    </div>
 
     <div class="form-card">
       <form id="signup-form">
         <label for="email">Work email</label>
         <input type="email" id="email" placeholder="you@yourstore.com" required />
 
-        <label for="store">Shopify store URL</label>
-        <input type="text" id="store" placeholder="yourstore.myshopify.com" required />
+        <!-- CAMBIO 4: Store URL opcional -->
+        <label for="store">
+          Shopify store URL
+          <span class="field-hint">— optional, helps us personalize your onboarding</span>
+        </label>
+        <input type="text" id="store" placeholder="yourstore.myshopify.com" />
 
         <div class="error-msg" id="error-msg" style="display:none"></div>
 
@@ -345,6 +355,21 @@
 
     const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 
+    // CAMBIO 1A: Cargar contador de waitlist desde Supabase
+    async function loadCounter() {
+      try {
+        const { data, error } = await client.rpc('get_lead_count')
+        if (!error && data > 0) {
+          document.getElementById('counter-text').textContent =
+            `Join ${data} Shopify merchant${data === 1 ? '' : 's'} already on the waitlist`
+        }
+      } catch (e) {
+        // Si la función no existe aún, el badge se mantiene con el texto por defecto
+      }
+    }
+    loadCounter()
+
+    // Submit del formulario
     document.getElementById('signup-form').addEventListener('submit', async (e) => {
       e.preventDefault()
 
@@ -357,7 +382,10 @@
       btn.textContent = 'Saving...'
       errorEl.style.display = 'none'
 
-      const { error } = await client.from('leads').insert({ email, store_url })
+      const { error } = await client.from('leads').insert({
+        email,
+        store_url: store_url || null
+      })
 
       if (error) {
         errorEl.textContent = 'Something went wrong. Please try again.'
