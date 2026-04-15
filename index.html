@@ -83,6 +83,18 @@
       margin: 0 auto 2.5rem;
     }
 
+    /* HERO IMAGE */
+    .hero-image {
+      max-width: 320px;
+      margin: 0 auto 2.5rem;
+      filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
     /* FORM */
     .form-card {
       background: var(--light);
@@ -192,6 +204,29 @@
     }
     .step h3 { font-size: 1rem; font-weight: 700; }
     .step p { font-size: 0.9rem; color: var(--gray); }
+    .step img {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+      border-radius: 1rem;
+      filter: drop-shadow(0 8px 20px rgba(0,0,0,0.10));
+      margin-top: 0.75rem;
+    }
+
+    /* DASHBOARD SECTION */
+    .dashboard-section {
+      max-width: 860px;
+      margin: 5rem auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    .dashboard-section img {
+      width: 100%;
+      height: auto;
+      border-radius: 1rem;
+      filter: drop-shadow(0 20px 50px rgba(0,0,0,0.12));
+      margin-top: 2rem;
+    }
 
     /* BENEFITS */
     .benefits {
@@ -226,6 +261,37 @@
       border-top: 1px solid var(--border);
     }
 
+    /* BOTTOM CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: var(--dark);
+      color: #fff;
+    }
+    .bottom-cta h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.75rem;
+    }
+    .bottom-cta p {
+      color: #94a3b8;
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+    }
+    .btn-cta {
+      display: inline-block;
+      padding: 0.9rem 2.5rem;
+      background: var(--green);
+      color: #fff;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-cta:hover { background: var(--green-dark); }
+
     /* ERROR */
     .error-msg {
       color: #dc2626;
@@ -243,7 +309,7 @@
     <!-- CAMBIO 1A: Contador en tiempo real -->
     <div class="waitlist-counter">
       <span class="dot"></span>
-      <span id="counter-text">Join Shopify merchants on the waitlist</span>
+      <span id="counter-text">Be among the first merchants to get early access</span>
     </div>
 
     <!-- CAMBIO 3: Headline pain-based "X Without Y" -->
@@ -258,7 +324,11 @@
       The average Fiverr UGC video costs $150 — and looks like it.
     </div>
 
-    <div class="form-card">
+    <div class="hero-image">
+      <img src="images/hero-email-delivery.png" alt="AutoUGC email sent to customer after delivery" />
+    </div>
+
+    <div class="form-card" id="signup">
       <form id="signup-form">
         <label for="email">Work email</label>
         <input type="email" id="email" placeholder="you@yourstore.com" required />
@@ -300,6 +370,7 @@
         <div class="step-num">2</div>
         <h3>Customer records</h3>
         <p>One tap opens the camera in their mobile browser — no app to download.</p>
+        <img src="images/step-customer-recording.png" alt="Customer recording screen on mobile" />
       </div>
       <div class="step">
         <div class="step-num">3</div>
@@ -342,6 +413,20 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- DASHBOARD PREVIEW -->
+  <div class="dashboard-section">
+    <div class="section-label">Your dashboard</div>
+    <h2 style="font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 800; letter-spacing: -0.02em;">Every video, moderated<br/>and ready to publish.</h2>
+    <img src="images/dashboard-preview.png" alt="AutoUGC merchant dashboard showing collected videos" />
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <div class="bottom-cta">
+    <h2>Ready to get real customer videos?</h2>
+    <p>Join the waitlist. We'll reach out personally before launch.</p>
+    <a href="#signup" class="btn-cta">Get Early Access →</a>
   </div>
 
   <footer>
